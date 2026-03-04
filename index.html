@@ -40,7 +40,6 @@ background:#333;
 color:white;
 border-radius:4px;
 cursor:pointer;
-margin:5px;
 }
 
 button:hover{
@@ -60,21 +59,36 @@ font-weight:bold;
 
 <div class="container">
 
+<!-- REGISTER -->
+
+<div id="registerPage">
+
 <h2>Register</h2>
 
 <input type="text" id="regUser" placeholder="Username">
+
 <input type="password" id="regPass" placeholder="Password">
 
 <button onclick="register()">Register</button>
 
+</div>
+
+
+<!-- LOGIN -->
+
+<div id="loginPage" style="display:none;">
+
 <h2>Login</h2>
 
 <input type="text" id="loginUser" placeholder="Username">
+
 <input type="password" id="loginPass" placeholder="Password">
 
 <button onclick="login()">Login</button>
 
 <p id="msg"></p>
+
+</div>
 
 </div>
 
@@ -88,7 +102,8 @@ function register(){
 storedUser=document.getElementById("regUser").value
 storedPass=document.getElementById("regPass").value
 
-document.getElementById("msg").innerText="Registration successful"
+document.getElementById("registerPage").style.display="none"
+document.getElementById("loginPage").style.display="block"
 
 }
 
@@ -99,12 +114,12 @@ let p=document.getElementById("loginPass").value
 
 if(u===storedUser && p===storedPass){
 
-document.getElementById("msg").innerText="Login successful"
+document.getElementById("msg").innerText="Login Successful"
 
 }
 else{
 
-document.getElementById("msg").innerText="Invalid username or password"
+document.getElementById("msg").innerText="Invalid Username or Password"
 
 }
 
