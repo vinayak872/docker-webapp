@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login Page</title>
+<title>Register and Login</title>
 
 <style>
 
@@ -21,11 +21,12 @@ padding:30px;
 border-radius:8px;
 box-shadow:0 4px 10px rgba(0,0,0,0.1);
 text-align:center;
+width:260px;
 }
 
 input{
 display:block;
-width:200px;
+width:90%;
 padding:8px;
 margin:10px auto;
 border:1px solid #ccc;
@@ -39,10 +40,16 @@ background:#333;
 color:white;
 border-radius:4px;
 cursor:pointer;
+margin:5px;
 }
 
 button:hover{
 background:#555;
+}
+
+#msg{
+margin-top:10px;
+font-weight:bold;
 }
 
 </style>
@@ -53,15 +60,57 @@ background:#555;
 
 <div class="container">
 
+<h2>Register</h2>
+
+<input type="text" id="regUser" placeholder="Username">
+<input type="password" id="regPass" placeholder="Password">
+
+<button onclick="register()">Register</button>
+
 <h2>Login</h2>
 
-<input type="text" placeholder="Username">
+<input type="text" id="loginUser" placeholder="Username">
+<input type="password" id="loginPass" placeholder="Password">
 
-<input type="password" placeholder="Password">
+<button onclick="login()">Login</button>
 
-<button>Login</button>
+<p id="msg"></p>
 
 </div>
+
+<script>
+
+let storedUser=""
+let storedPass=""
+
+function register(){
+
+storedUser=document.getElementById("regUser").value
+storedPass=document.getElementById("regPass").value
+
+document.getElementById("msg").innerText="Registration successful"
+
+}
+
+function login(){
+
+let u=document.getElementById("loginUser").value
+let p=document.getElementById("loginPass").value
+
+if(u===storedUser && p===storedPass){
+
+document.getElementById("msg").innerText="Login successful"
+
+}
+else{
+
+document.getElementById("msg").innerText="Invalid username or password"
+
+}
+
+}
+
+</script>
 
 </body>
 </html>
